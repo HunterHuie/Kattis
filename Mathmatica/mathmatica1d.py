@@ -12,10 +12,14 @@ alpha = 0.01  # Thermal diffusivity
 dx = L / (Nx - 1)
 dt = T / Nt
 x = np.linspace(0, L, Nx)
-u = np.zeros(Nx)
+u = np.ones(Nx)
+
+print(u)
 
 # Initial condition (e.g., a Gaussian pulse)
-u[:] = np.exp(-100 * (x - 0.5)**2)
+# u[:] = np.exp(-100 * (x - 0.5)**2)
+# u0 = np.zeros(Nx)
+u[Nx // 4:Nx // 2] = 100.0
 
 # Time-stepping loop
 for n in range(0, Nt):
